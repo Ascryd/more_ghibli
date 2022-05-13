@@ -20,20 +20,34 @@ export default {
 
 .header {
   display: flex;
-  // background-color: rgba(255, 0, 0, 0.589);
   height: 150px;
+  transition: all 0.7s;
+  @include header-mobile {
+    height: 60px;
+  }
 
   .title {
     width: 50%;
-    background-color: white;
-    // object-fit: cover;
-    // box-shadow: 40px -10px 80px rgba(255, 255, 255, 0.918), -40px -10px 80px rgba(255, 255, 255, 0.918);
-    // z-index: 2;
+
   }
 
   .side_pics {
     width: 25%;
     object-fit: cover;
+
+    &:nth-child(1) {
+      border-radius: 0 0 20px 0;
+      @include header-mobile {
+        border-radius: 0 0 10px 0;
+      }
+    }
+
+    &:nth-child(3) {
+      border-radius: 0 0 0 20px;
+      @include header-mobile {
+        border-radius: 0 0 0 10px;
+      }
+    }
   }
 
 }

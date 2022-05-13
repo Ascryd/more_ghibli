@@ -16,7 +16,6 @@
 
 * {
   box-sizing: border-box;
-  background-color: rgba(40, 80, 17, 0.603); // PROVISOIRE
 }
 html,body,ul,li,h1,h2,h3,h4,h5,p,img {margin: 0; padding: 0; font-weight: normal;}
 body {font-size: 16px; font-weight: normal;}
@@ -25,6 +24,8 @@ img {display: block;}
 a {color: black; text-decoration: none;}
 ul {list-style-type: none;}
 
-
+body {
+    background-color: $background-color; // PROVISOIRE
+}
 
 </style>
