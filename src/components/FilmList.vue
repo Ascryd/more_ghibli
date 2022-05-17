@@ -1,9 +1,9 @@
 <template>
  <Carousel class="carousel" :mouseDrag="false" :breakpoints="breakpoints" :settings="settings">
     <Slide v-for="slide in films" :key="slide">
-      <img class="carousel__item" :src="slide" alt="film poster">
+      <img @click="getCurrentFilm(slide.id)" class="carousel__item" :src="slide.image" alt="film poster">
     </Slide>
-
+    
     <template #addons>
       <Navigation />
       <Pagination />
@@ -18,6 +18,7 @@
 import {Carousel, Slide, Navigation, Pagination} from 'vue3-carousel';
 
 import 'vue3-carousel/dist/carousel.css';
+// import { mapState } from 'vuex';
 
 export default {
     name: "FilmList",
@@ -35,6 +36,8 @@ export default {
                 itemsToShow: 1,
                 snapAlign: 'center'
             },
+                
+            
 
             breakpoints: {
                 700: {
@@ -63,12 +66,21 @@ export default {
         .then (res => {
             console.log(res);
             res.data.forEach(el => {
-                console.log(el.image);
-                this.films.push(el.image)
+                // console.log(el.image);
+                this.films.push({
+                    image: el.image,
+                    id: el.id
+                })
             });
         })
     },
 
+    methods: {
+        getCurrentFilm(id) {
+            console.log(id)
+            this.$store.dispatch('getFilm', id)
+        }
+    },
 }
 </script>
 
