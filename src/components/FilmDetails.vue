@@ -2,20 +2,19 @@
     <div class="details">
         <img class="banner" :src="currentFilm.movie_banner" alt="film's banner">
         <h2>{{currentFilm.title}}</h2>
-        <p>{{currentFilm.description}}</p>
+        <p class="description">{{currentFilm.description}}</p>
         <div class="infos">
             <div class="filmInfo">
-                <div>
-                    <h3>RT Score</h3>
-                    <!-- <font-awesome-icon :icon="['fas', 'phone']" /> -->
-                    <p>{{currentFilm.rt_score}}</p>
+                <div class="tomato_score">
+                    <h3>RT Score <img src="../assets/tomato.svg" alt="tomato icon"/></h3>
+                    <p>{{currentFilm.rt_score}}/100</p>
                 </div>
                 <div>
-                    <h3>Watch time</h3>
-                    <p>{{currentFilm.running_time}}</p>
+                    <h3>Watch time <font-awesome-icon icon='clock' /></h3>
+                    <p>{{currentFilm.running_time}} minutes</p>
                 </div>
                 <div>
-                    <h3>Release date</h3>
+                    <h3>Release date <font-awesome-icon class="calendar" icon='calendar' /></h3>
                     <p>{{currentFilm.release_date}}</p>
                 </div>
             </div>
@@ -25,7 +24,7 @@
                     <p>{{currentFilm.director}}</p>
                 </div>
                 <div>
-                    <h3>h3roducer</h3>
+                    <h3>Producer</h3>
                     <p>{{currentFilm.producer}}</p>
                 </div>
             </div>
@@ -54,6 +53,7 @@ import { mapState } from 'vuex'
     gap: 50px;
     width: 80%;
     margin: auto;
+    padding-bottom: 500px;
 
     .banner {
         margin: auto;
@@ -67,10 +67,14 @@ import { mapState } from 'vuex'
         font-weight: 600;
     }
 
+    .description {
+        font-size: 21px;
+    }
+
     .infos {
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 50px;
         h3 {
             font-size: 20px;
         }
@@ -79,6 +83,21 @@ import { mapState } from 'vuex'
     .filmInfo {
         display: flex;
         justify-content: space-around;
+
+        .tomato_score {
+            h3 {
+                display: flex;
+                gap: 5px;
+            }
+
+            img {
+                width: 22px;
+            }
+        }
+
+        .calendar {
+            color: rgb(36, 81, 206);
+        }
     }
 
     .teamInfo {
