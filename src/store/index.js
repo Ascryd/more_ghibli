@@ -21,7 +21,6 @@ export default createStore({
       species: [],
       title: "",
     },
-    test: ""
   },
 
   getters: {
@@ -30,6 +29,7 @@ export default createStore({
   mutations: {
     changeCurrentFilm (state, film) {
       state.currentFilm = film
+
     }
   },
 
@@ -37,6 +37,7 @@ export default createStore({
     getFilm({commit}, id) {
       axios.get(`https://ghibliapi.herokuapp.com/films/${id}`)
         .then (res => {
+          // console.log(res.data)
           commit("changeCurrentFilm", res.data)
         })
         .catch(err => {
