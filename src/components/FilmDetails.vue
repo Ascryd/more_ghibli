@@ -54,7 +54,7 @@ import { mapState } from 'vuex'
     gap: 50px;
     width: 80%;
     margin: auto;
-    padding-bottom: 500px;
+    padding-bottom: 150px;
 
     .banner {
         margin: auto;

@@ -37,7 +37,6 @@ export default createStore({
     getFilm({commit}, id) {
       axios.get(`https://ghibliapi.herokuapp.com/films/${id}`)
         .then (res => {
-          // console.log(res.data)
           commit("changeCurrentFilm", res.data)
         })
         .catch(err => {

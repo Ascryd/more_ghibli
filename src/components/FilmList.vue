@@ -64,9 +64,7 @@ export default {
         const axios = require("axios")
         axios.get("https://ghibliapi.herokuapp.com/films")
         .then (res => {
-            // console.log(res);
             res.data.forEach(el => {
-                // console.log(el.image);
                 this.films.push({
                     image: el.image,
                     id: el.id
@@ -77,7 +75,6 @@ export default {
 
     methods: {
         getCurrentFilm(id) {
-            // console.log(id)
             this.$store.dispatch('getFilm', id)
         }
     },
@@ -138,6 +135,7 @@ export default {
 
     img {
         width: 260px;
+        cursor: pointer;
     }
 }
 </style>
