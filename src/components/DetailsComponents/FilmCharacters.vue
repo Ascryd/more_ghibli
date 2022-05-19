@@ -29,9 +29,22 @@ import { mapState } from 'vuex'
             }
         },
 
-        watch: {
+        watch: {   
+           currentFilm() {
+                this.getCharacters()
+            }
+        },
 
-            currentFilm() {
+        mounted () {
+            this.getCharacters()
+        },
+
+        computed: {
+            ...mapState(['currentFilm'])
+        },
+
+        methods: {
+            getCharacters() { // We get the characters of the selected film
                 this.characters = []
                 console.log("currentFilm à changé")
 
@@ -50,6 +63,7 @@ import { mapState } from 'vuex'
                             axios.get(`${character.species}`) // Get the characters species
                             .then (result => {
                                 character.species = result.data.name
+                                
                                 this.characters.push(character)
                             })
                             .catch(error => {
@@ -64,14 +78,11 @@ import { mapState } from 'vuex'
                 })
             }
         },
-
-        computed: {
-            ...mapState(['currentFilm'])
-        }
     }
 </script>
 
 <style lang="scss" scoped>
+
 
 .characters {
     width: 80%;
@@ -118,10 +129,7 @@ import { mapState } from 'vuex'
                 gap: 5px;
             }
         }
-
     }
-
-
 }
 
 </style>
