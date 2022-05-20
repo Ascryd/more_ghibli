@@ -22,7 +22,7 @@ export default {
   display: flex;
   height: 150px;
   transition: all 0.7s;
-  @include header-mobile {
+  @include mobile {
     height: 60px;
   }
 
@@ -37,14 +37,14 @@ export default {
 
     &:nth-child(1) {
       border-radius: 0 0 20px 0;
-      @include header-mobile {
+      @include mobile {
         border-radius: 0 0 10px 0;
       }
     }
 
     &:nth-child(3) {
       border-radius: 0 0 0 20px;
-      @include header-mobile {
+      @include mobile {
         border-radius: 0 0 0 10px;
       }
     }

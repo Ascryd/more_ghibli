@@ -1,4 +1,4 @@
-@mixin header-mobile {
+@mixin mobile {
     @media screen and (max-width: 425px) {
         @content
     }

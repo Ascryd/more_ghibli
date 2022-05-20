@@ -5,9 +5,9 @@
                 <img class="bloc__pics" :src="require(`../../assets/locations/${location.name_pics}.webp`)" alt="photo of the character"> 
                 <h2 class="bloc__name">{{location.name}}</h2> 
                 <div class="bloc__info">
-                    <p><strong>Climate</strong> : {{location.climate}}</p>
-                    <p><strong>Terrain</strong> : {{location.terrain}}</p>
-                    <p><strong>Surface Water</strong> : {{location.surface_water}}</p>
+                    <p><strong>Climate : </strong>{{location.climate}}</p>
+                    <p><strong>Terrain : </strong>{{location.terrain}}</p>
+                    <p><strong>Surface Water : </strong>{{location.surface_water}}</p>
                 </div>
             </div>
         </div>

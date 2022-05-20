@@ -5,11 +5,11 @@
                 <img class="bloc__pics" :src="require(`../../assets/characters/${character.name_pics}.webp`)" alt="photo of the character"> 
                 <h2 class="bloc__name">{{character.name}}</h2> 
                 <div class="bloc__info">
-                    <p><strong>Age</strong> : {{character.age}}</p>
-                    <p><strong>EyeColor</strong> : {{character.eye_color}}</p>
-                    <p><strong>Gender</strong> : {{character.gender}}</p>
-                    <p><strong>Hair color</strong> : {{character.hair_color}}</p>
-                    <p><strong>Species</strong> : {{character.species}}</p>
+                    <p><strong>Age : </strong>{{character.age}}</p>
+                    <p><strong>EyeColor : </strong>{{character.eye_color}}</p>
+                    <p><strong>Gender : </strong>{{character.gender}}</p>
+                    <p><strong>Hair color : </strong>{{character.hair_color}}</p>
+                    <p><strong>Species : </strong>{{character.species}}</p>
                 </div>
             </div>
         </div>
@@ -60,9 +60,9 @@ import { mapState } from 'vuex'
                                     character.name_pics = character.name
                                 }
 
-                            axios.get(`${character.species}`) // Get the characters species
-                            .then (result => {
-                                character.species = result.data.name
+                                axios.get(`${character.species}`) // Get the characters species
+                                .then (result => {
+                                    character.species = result.data.name
                                 
                                 this.characters.push(character)
                             })
