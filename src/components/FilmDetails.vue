@@ -1,31 +1,33 @@
 <template>
     <div class="details">
-        <img class="banner" :src="currentFilm.movie_banner" alt="film's banner">
+        <transition name='fade'>
+            <img v-if="currentFilm.id != ''" class="banner" :src="currentFilm.movie_banner" alt="film's banner">
+        </transition>
         <h2>{{currentFilm.title}}</h2>
         <p class="description">{{currentFilm.description}}</p>
         <div class="infos">
             <div class="filmInfo">
                 <div class="tomato_score">
                     <h3>RT Score <img src="../assets/tomato.svg" alt="tomato icon"/></h3>
-                    <p>{{currentFilm.rt_score}}/100</p>
+                    <p v-if="currentFilm.id != ''">{{currentFilm.rt_score}}/100</p>
                 </div>
                 <div>
                     <h3>Watch time <font-awesome-icon icon='clock' /></h3>
-                    <p>{{currentFilm.running_time}} minutes</p>
+                    <p v-if="currentFilm.id != ''">{{currentFilm.running_time}} minutes</p>
                 </div>
                 <div>
                     <h3>Release date <font-awesome-icon class="calendar" icon='calendar' /></h3>
-                    <p>{{currentFilm.release_date}}</p>
+                    <p v-if="currentFilm.id != ''">{{currentFilm.release_date}}</p>
                 </div>
             </div>
             <div class="teamInfo">
                 <div>
-                    <h3>Director</h3>
-                    <p>{{currentFilm.director}}</p>
+                    <h3>Director <font-awesome-icon class="clapperBoard" icon='clapperboard' /></h3>
+                    <p v-if="currentFilm.id != ''">{{currentFilm.director}}</p>
                 </div>
                 <div>
-                    <h3>Producer</h3>
-                    <p>{{currentFilm.producer}}</p>
+                    <h3>Producer <font-awesome-icon class="user-tie" icon='user-tie' /></h3>
+                    <p v-if="currentFilm.id != ''">{{currentFilm.producer}}</p>
                 </div>
             </div>
         </div>
@@ -47,6 +49,16 @@ import { mapState } from 'vuex'
 </script>
 
 <style lang="scss" scoped>
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
 .details {
     display: flex;
@@ -84,6 +96,8 @@ import { mapState } from 'vuex'
     .filmInfo {
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 50px;
 
         .tomato_score {
             h3 {
@@ -99,11 +113,22 @@ import { mapState } from 'vuex'
         .calendar {
             color: rgb(36, 81, 206);
         }
+
     }
 
     .teamInfo {
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 50px;
+
+        .clapperBoard {
+            color: rgb(0, 0, 0);
+        }
+
+        .user-tie {
+            color: rgb(0, 0, 0);
+        }
     }
 }
 

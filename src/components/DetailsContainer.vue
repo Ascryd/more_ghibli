@@ -2,13 +2,20 @@
     <div>
         <nav class="menu">
             <ul>
-                <li v-for="item in links" :key="item.title" @click="itemToShow(item)">{{item.title}}</li>
+                <li class="btn" v-for="item in links" :key="item.title" @click="itemToShow(item)" :class="{'btn--active': item.isActive}">{{item.title}}</li>
             </ul>
         </nav>
 
-        <FilmCharacters v-if="toShow == 'Characters'" />
-        <FilmLocations v-if="toShow == 'Locations'" />
-        <FilmVehicles v-if="toShow == 'Vehicles'" />
+        <div class="content">
+            <FilmCharacters v-if="toShow == 'Characters'" />
+            <FilmLocations v-if="toShow == 'Locations'" />
+            <FilmVehicles v-if="toShow == 'Vehicles'" />
+
+            <!-- <img v-if="" src="../assets/logo_ghibli.png" alt=""> -->
+        </div>
+
+
+        
 
     </div>
 </template>
@@ -50,9 +57,22 @@ import FilmVehicles from "@/components/DetailsComponents/FilmVehicles.vue"
 
         methods: {
             itemToShow(item) {
-                console.log(item)
                 this.toShow = item.title
+
+                this.links.forEach(el => {
+                    el.isActive = false
+                })
+
+                item.isActive = true
             }
+        },
+
+        mounted () {
+            console.log('mounted')
+        },
+
+        updated () {
+            console.log("updated")
         },
 
     }
@@ -64,13 +84,22 @@ import FilmVehicles from "@/components/DetailsComponents/FilmVehicles.vue"
     margin-bottom: 50px;
     ul {
         display: flex;
-        gap: 20px;
+        gap: 30px;
         justify-content: center;
-        li {
+        .btn {
             background-color: white;
-            padding: 5px;
+            padding: 5px 7px;
+            cursor: pointer;
+            border-radius: 7px;
+
+            &--active {
+                color: white;
+                background-color: rgb(51, 51, 51);
+            }
 
         }
+
+        
     }
 }
 

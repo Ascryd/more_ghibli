@@ -39,6 +39,8 @@ import { mapState } from 'vuex'
             this.getCharacters()
         },
 
+        
+
         computed: {
             ...mapState(['currentFilm'])
         },

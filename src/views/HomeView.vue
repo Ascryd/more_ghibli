@@ -7,6 +7,8 @@
     <FilmDetails />
 
     <DetailsContainer />
+
+    <FooterSection />
   </div>
 </template>
 
@@ -15,6 +17,7 @@
 import HeaderSection from '@/components/HeaderSection.vue'
 import FilmList from "@/components/FilmList.vue"
 import FilmDetails from "@/components/FilmDetails.vue"
+import FooterSection from "@/components/FooterSection.vue"
 
 import DetailsContainer from "@/components/DetailsContainer.vue"
 
@@ -24,7 +27,8 @@ export default {
     HeaderSection,
     FilmList,
     FilmDetails,
-    DetailsContainer
+    DetailsContainer,
+    FooterSection
   }
 }
 </script>
