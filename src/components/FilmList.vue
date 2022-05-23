@@ -16,9 +16,7 @@
 <script>
 
 import {Carousel, Slide, Navigation, Pagination} from 'vue3-carousel';
-
 import 'vue3-carousel/dist/carousel.css';
-// import { mapState } from 'vuex';
 
 export default {
     name: "FilmList",
@@ -37,8 +35,6 @@ export default {
                 snapAlign: 'center'
             },
                 
-            
-
             breakpoints: {
                 700: {
                     itemsToShow: 2,
@@ -123,10 +119,6 @@ export default {
 
     &__pagination-button {
         background-color: rgba(57, 143, 0, 0.411);
-        // border-radius: 50%;
-        // width: clamp(2px, 1vw, 5px);
-        // height: 5px;
-        // margin: 0px clamp(1px, 0.5vw, 6px);
     }
 
     &__pagination-button--active {

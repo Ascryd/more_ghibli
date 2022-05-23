@@ -25,7 +25,7 @@ a {color: black; text-decoration: none;}
 ul {list-style-type: none;}
 
 body {
-    background-color: $background-color; // PROVISOIRE
+    background-color: $background-color;
 }
 
 </style>

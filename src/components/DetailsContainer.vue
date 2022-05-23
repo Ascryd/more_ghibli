@@ -10,8 +10,6 @@
             <FilmCharacters v-if="toShow == 'Characters'" />
             <FilmLocations v-if="toShow == 'Locations'" />
             <FilmVehicles v-if="toShow == 'Vehicles'" />
-
-            <!-- <img v-if="" src="../assets/logo_ghibli.png" alt=""> -->
         </div>
 
 
@@ -35,7 +33,7 @@ import FilmVehicles from "@/components/DetailsComponents/FilmVehicles.vue"
 
         data() {
             return {
-                toShow: 'Locations',
+                toShow: 'Characters',
                 links: [
                     {
                         title: 'Characters',
@@ -74,7 +72,6 @@ import FilmVehicles from "@/components/DetailsComponents/FilmVehicles.vue"
         updated () {
             console.log("updated")
         },
-
     }
 </script>
 
@@ -82,10 +79,12 @@ import FilmVehicles from "@/components/DetailsComponents/FilmVehicles.vue"
 
 .menu {
     margin-bottom: 50px;
+    
     ul {
         display: flex;
         gap: 30px;
         justify-content: center;
+
         .btn {
             background-color: white;
             padding: 5px 7px;
@@ -96,11 +95,11 @@ import FilmVehicles from "@/components/DetailsComponents/FilmVehicles.vue"
                 color: white;
                 background-color: rgb(51, 51, 51);
             }
-
         }
-
-        
     }
 }
 
+.content {
+    min-height: 500px;
+}
 </style>

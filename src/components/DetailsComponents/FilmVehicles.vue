@@ -55,7 +55,6 @@ import { mapState } from 'vuex'
                         vehicle.films.forEach(el => {
                             let filmId = el.replace('https://ghibliapi.herokuapp.com/films/', '')
                             if (filmId == this.currentFilm.id) {
-                                // console.log('its the same !')
                                 if (/\s/.test(vehicle.name)) {
                                     vehicle.name_pics = vehicle.name.replace(/\s+/g, '_')
                                 } else {

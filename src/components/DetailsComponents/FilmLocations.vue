@@ -75,7 +75,6 @@ import { mapState } from 'vuex'
 <style lang="scss" scoped>
 
 .locations {
-
     width: 80%;
     margin: auto;
 

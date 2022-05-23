@@ -32,14 +32,14 @@ import { mapState } from 'vuex'
         watch: {   
            currentFilm() {
                 this.getCharacters()
-            }
+            }, 
+            
         },
 
         mounted () {
             this.getCharacters()
-        },
 
-        
+        },
 
         computed: {
             ...mapState(['currentFilm'])
@@ -48,7 +48,6 @@ import { mapState } from 'vuex'
         methods: {
             getCharacters() { // We get the characters of the selected film
                 this.characters = []
-                console.log("currentFilm à changé")
 
                 axios.get("https://ghibliapi.herokuapp.com/people/")
                 .then(res => {
@@ -78,13 +77,12 @@ import { mapState } from 'vuex'
                 .catch(err => {
                     console.log(err)
                 })
-            }
+            },
         },
     }
 </script>
 
 <style lang="scss" scoped>
-
 
 .characters {
     width: 80%;
@@ -127,8 +125,12 @@ import { mapState } from 'vuex'
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                padding-left: 5px;
+                padding: 0 5px;
                 gap: 5px;
+
+                p {
+                    text-align: start
+                }
             }
         }
     }

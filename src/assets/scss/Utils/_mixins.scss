@@ -4,7 +4,6 @@
     }
 };
 
-
 @mixin mobile--footer {
     @media screen and (max-width: 700px) {
         @content

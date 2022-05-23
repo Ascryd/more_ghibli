@@ -11,12 +11,7 @@
             <h3>Me</h3>
             <p>I am a French developer who builds websites on subjects I like to improve my development skills</p>
             <a href="https://ascryd.github.io/PorteFolio/#/">Visit my personnal website</a>
-
-
         </div>
-
-
-
     </div>
 </template>
 
@@ -38,16 +33,12 @@
     display: flex;
     justify-content: space-around;
     gap: 35px;
-    // width: 80%;
-    // flex-wrap: wrap;
     @include mobile--footer {
         flex-direction: column;
         align-items: center;
     }
     
-
     .bloc {
-        // background-color: rgb(65, 0, 0);
         display: flex;
         flex-direction: column;
         gap: 15px;
