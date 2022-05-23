@@ -13,5 +13,5 @@ module.exports = {
       }
     }
   },
-  publicPath: process.env.NODE_ENV === "production" ? "/More_Ghibli/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/more_ghibli/" : "/",
 }
