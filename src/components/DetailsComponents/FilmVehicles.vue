@@ -1,7 +1,7 @@
 <template>
     <div class="vehicles">
         <div class="list">
-            <div class="bloc" v-for="vehicle in this.vehicles" :key="vehicle.id">
+            <div :class="[`index--${index}`]" class="bloc" v-for="(vehicle, index) in this.vehicles" :key="vehicle.id">
                 <img class="bloc__pics" :src="require(`../../assets/vehicles/${vehicle.name_pics}.webp`)" alt="photo of the character"> 
                 <h2 class="bloc__name">{{vehicle.name}}</h2> 
                 <div class="bloc__info">
@@ -105,6 +105,7 @@ import { mapState } from 'vuex'
             box-shadow: 1px 1px 10px black;
             padding-bottom: 5px;
             width: 900px;
+            opacity: 0;
 
             &:hover {
                 box-shadow: 2px 2px 20px black;
@@ -149,6 +150,12 @@ import { mapState } from 'vuex'
                         text-align: start;
                     }
                 }
+            }
+        }
+
+        @for $i from 0 to 20 {
+            .index--#{$i} {
+                animation: slideDown 0.7s ($i *140ms) forwards;
             }
         }
     }

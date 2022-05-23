@@ -64,14 +64,6 @@ import FilmVehicles from "@/components/DetailsComponents/FilmVehicles.vue"
                 item.isActive = true
             }
         },
-
-        mounted () {
-            console.log('mounted')
-        },
-
-        updated () {
-            console.log("updated")
-        },
     }
 </script>
 
@@ -79,7 +71,7 @@ import FilmVehicles from "@/components/DetailsComponents/FilmVehicles.vue"
 
 .menu {
     margin-bottom: 50px;
-    
+
     ul {
         display: flex;
         gap: 30px;

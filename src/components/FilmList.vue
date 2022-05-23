@@ -1,5 +1,5 @@
 <template>
- <Carousel class="carousel" :mouseDrag="false" :breakpoints="breakpoints" :settings="settings">
+ <Carousel v-if="films.length !== 0" class="carousel" :mouseDrag="false" :breakpoints="breakpoints" :settings="settings">
     <Slide v-for="slide in films" :key="slide">
       <img @click="getCurrentFilm(slide.id)" class="carousel__item" :src="slide.image" alt="film poster">
     </Slide>

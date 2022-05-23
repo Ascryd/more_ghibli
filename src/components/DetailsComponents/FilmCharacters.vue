@@ -1,7 +1,7 @@
 <template>
     <div class="characters">
         <div class="list">
-            <div class="bloc" v-for="character in this.characters" :key="character.id">
+            <div :class="[`index--${index}`]" class="bloc" v-for="(character, index) in this.characters" :key="character.id">
                 <img class="bloc__pics" :src="require(`../../assets/characters/${character.name_pics}.webp`)" alt="photo of the character"> 
                 <h2 class="bloc__name">{{character.name}}</h2> 
                 <div class="bloc__info">
@@ -48,6 +48,7 @@ import { mapState } from 'vuex'
         methods: {
             getCharacters() { // We get the characters of the selected film
                 this.characters = []
+                let storeArray = []
 
                 axios.get("https://ghibliapi.herokuapp.com/people/")
                 .then(res => {
@@ -65,14 +66,16 @@ import { mapState } from 'vuex'
                                 .then (result => {
                                     character.species = result.data.name
                                 
-                                this.characters.push(character)
-                            })
-                            .catch(error => {
-                                console.log(error)
-                            })
+                                storeArray.push(character)
+                                return storeArray
+                                })
+                                .catch(error => {
+                                    console.log(error)
+                                })
                             }
                         })
                     })
+                    storeArray = this.characters
                 })
                 .catch(err => {
                     console.log(err)
@@ -104,6 +107,9 @@ import { mapState } from 'vuex'
             box-shadow: 1px 1px 10px black;
             padding-bottom: 5px;
             width: 220px;
+            opacity: 0;
+            // animation: slideLeft 1s forwards;
+
 
             &:hover {
                 box-shadow: 2px 2px 20px black;
@@ -131,6 +137,12 @@ import { mapState } from 'vuex'
                 p {
                     text-align: start
                 }
+            }
+        }
+
+        @for $i from 0 to 20 {
+            .index--#{$i} {
+                animation: slideLeft 0.7s ($i *140ms) forwards;
             }
         }
     }

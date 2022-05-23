@@ -1,0 +1,19 @@
+@keyframes slideLeft {
+    from {
+        transform: translateX(65px);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(65px);
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

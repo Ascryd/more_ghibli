@@ -1,7 +1,7 @@
 <template>
     <div class="locations">
         <div class="list">
-            <div class="bloc" v-for="location in this.locations" :key="location.id">
+            <div :class="[`index--${index}`]" class="bloc" v-for="(location, index) in this.locations" :key="location.id">
                 <img class="bloc__pics" :src="require(`../../assets/locations/${location.name_pics}.webp`)" alt="photo of the character"> 
                 <h2 class="bloc__name">{{location.name}}</h2> 
                 <div class="bloc__info">
@@ -94,6 +94,7 @@ import { mapState } from 'vuex'
             overflow: hidden;
             box-shadow: 1px 1px 10px black;
             padding-bottom: 5px;
+            opacity: 0;
 
             &:hover {
                 box-shadow: 2px 2px 20px black;
@@ -117,6 +118,12 @@ import { mapState } from 'vuex'
                 align-items: flex-start;
                 padding-left: 5px;
                 gap: 5px;
+            }
+        }
+
+        @for $i from 0 to 20 {
+            .index--#{$i} {
+                animation: slideLeft 0.7s ($i *140ms) forwards;
             }
         }
     }
