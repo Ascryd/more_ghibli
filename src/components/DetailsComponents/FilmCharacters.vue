@@ -13,6 +13,9 @@
                 </div>
             </div>
         </div>
+        <div class="nothing" v-if="this.characters.length == 0">
+            <p>Oops, there is no information here, sorry !</p>
+        </div>
     </div>
 </template>
 
@@ -25,7 +28,8 @@ import { mapState } from 'vuex'
 
         data() {
             return {
-                characters: []
+                characters: [],
+                empty: false
             }
         },
 
@@ -75,7 +79,7 @@ import { mapState } from 'vuex'
                             }
                         })
                     })
-                    storeArray = this.characters
+                    storeArray = this.characters                    
                 })
                 .catch(err => {
                     console.log(err)
@@ -108,7 +112,6 @@ import { mapState } from 'vuex'
             padding-bottom: 5px;
             width: 220px;
             opacity: 0;
-            // animation: slideLeft 1s forwards;
 
 
             &:hover {
@@ -145,6 +148,10 @@ import { mapState } from 'vuex'
                 animation: slideLeft 0.7s ($i *140ms) forwards;
             }
         }
+    }
+
+    .nothing {
+        @include nothing-text
     }
 }
 

@@ -7,25 +7,25 @@
         <p class="description">{{currentFilm.description}}</p>
         <div class="infos">
             <div class="filmInfo">
-                <div class="tomato_score">
+                <div class="tomato_score card">
                     <h3>RT Score <img src="../assets/tomato.svg" alt="tomato icon"/></h3>
                     <p v-if="currentFilm.id != ''">{{currentFilm.rt_score}}/100</p>
                 </div>
-                <div>
+                <div class="card">
                     <h3>Watch time <font-awesome-icon icon='clock' /></h3>
                     <p v-if="currentFilm.id != ''">{{currentFilm.running_time}} minutes</p>
                 </div>
-                <div>
+                <div class="card">
                     <h3>Release date <font-awesome-icon class="calendar" icon='calendar' /></h3>
                     <p v-if="currentFilm.id != ''">{{currentFilm.release_date}}</p>
                 </div>
             </div>
             <div class="teamInfo">
-                <div>
+                <div class="card">
                     <h3>Director <font-awesome-icon class="clapperBoard" icon='clapperboard' /></h3>
                     <p v-if="currentFilm.id != ''">{{currentFilm.director}}</p>
                 </div>
-                <div>
+                <div class="card">
                     <h3>Producer <font-awesome-icon class="user-tie" icon='user-tie' /></h3>
                     <p v-if="currentFilm.id != ''">{{currentFilm.producer}}</p>
                 </div>
@@ -95,9 +95,12 @@ import { mapState } from 'vuex'
 
     .filmInfo {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         flex-wrap: wrap;
         gap: 50px;
+        @include mobile--details {
+            justify-content: space-around;
+        }
 
         .tomato_score {
             h3 {
@@ -128,6 +131,18 @@ import { mapState } from 'vuex'
 
         .user-tie {
             color: rgb(0, 0, 0);
+        }
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        border-left: 1px solid black;
+        padding: 5px 10px;
+
+        p {
+            font-weight: 600;
         }
     }
 }

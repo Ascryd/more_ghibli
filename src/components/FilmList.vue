@@ -66,6 +66,7 @@ export default {
                     id: el.id
                 })
             });
+            this.getCurrentFilm(res.data[0].id)
         })
     },
 
@@ -128,6 +129,14 @@ export default {
     img {
         width: 260px;
         cursor: pointer;
+    }
+
+    .carousel__item {
+        transition: all .4s;
+    }
+
+    &:hover .carousel__item:not(:hover) {
+        filter: grayscale(100%);
     }
 }
 </style>

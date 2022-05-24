@@ -11,6 +11,9 @@
                 </div>
             </div>
         </div>
+        <div class="nothing" v-if="this.locations.length == 0">
+            <p>Oops, there is no information here, sorry !</p>
+        </div>
     </div>
 </template>
 
@@ -126,6 +129,10 @@ import { mapState } from 'vuex'
                 animation: slideLeft 0.7s ($i *140ms) forwards;
             }
         }
+    }
+
+    .nothing {
+        @include nothing-text
     }
 }
     
